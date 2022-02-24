@@ -18,7 +18,7 @@
         border-radius: 10px;
     }
 
-    #recebeValores{
+    div{
         text-align: center;
         padding: 20px;
     }
@@ -29,7 +29,7 @@
         <h1>Calculo IMC</h1>
     </header>
 
-    <div id="recebeValores">
+    <div>
         <label for="Peso">Digite o peso(Kg): </label>
         <p><input type="number" name="Peso" id="Peso" min="0" max="300"></p>
 
@@ -37,13 +37,22 @@
         <p><input type="number" name="Peso" id="Altura" min="0" max="300"></p>
 
         <button onclick="submit()">Submit</button>
+
+        <div id="Resultado"></div>
     </div>
     
 </body>
 
 <script>
     const submit = () =>{
+        let peso = document.getElementById("Peso").value,
+            altura = document.getElementById("Altura"). value / 100,
+            IMC = (peso / (altura * altura)).toFixed(2),
+            resultado = document.getElementById("Resultado");
 
+        if(Number(IMC) < 18.5){
+            resultado.innerHTML = "Abaixo do Peso";
+        }
     }
 </script>
 
