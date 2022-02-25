@@ -30,36 +30,73 @@
     </header>
 
     <div>
+        <h2>Média 3 Valores</h2>
+
         <label for="Valor1">Digite o valor 1</label>
-        <p><input type="number" name="Valor1" id="valor1"></p>
+        <p><input type="number" name="Valor1" id="Valor1"></p>
 
         <label for="Valor2">Digite o valor 2</label>
-        <p><input type="number" name="Valor2" id="valor2"></p>
+        <p><input type="number" name="Valor2" id="Valor2"></p>
 
         <label for="Valor3">Digite o valor 3</label>
-        <p><input type="number" name="Valor3" id="valor3"></p>
+        <p><input type="number" name="Valor3" id="Valor3"></p>
 
-        <button onclick="submit()">Submit</button>
+        <button onclick="submit()">Submit</button><br>
 
         <div id="Resultado"></div>
+
+        <h2>Média Vários Valores</h2>
+
+        <label for="variosValores">Digite um Valor e adicione-o. Para calcular a média aperte no botão média</label>
+        <p><input type="number" name="variosValores" id="variosValores"></p>
+
+        <button onclick="adicionarValores()">Adicionar</button>
+        <button onclick="fazerMedia()">Média</button>
+        <button onclick="resetar()">Resetar</button>
+
+        <div id="Resultado2"></div>
+
+        
     </div>
     
 </body>
 
 <script>
+    let somaValores = 0;
+    let contador = 0;
+    
     const submit = () =>{
-        let valor1 = document.getElementById("valor1").value,
-            valor2 = document.getElementById("valor2").value,
-            valor3 = document.getElementById("valor3").value,
-            media = (valor1 + valor2 + valor3),
+        let valor1 = document.getElementById("Valor1").value,
+            valor2 = document.getElementById("Valor2").value,
+            valor3 = document.getElementById("Valor3").value,
+            media = (Number(valor1) + Number(valor2) + Number(valor3)) / 3,
             resultado = document.getElementById("Resultado");
         
-            console.log(valor1)
-            console.log(valor2)
-            console.log(valor3)
+        resultado.innerHTML = `A média é: ${media}`;
+    }
 
-            console.log(media)
-        // resultado.innerHTML = media;
+    const adicionarValores = () =>{
+        let novoValor = document.getElementById("variosValores").value;
+
+        somaValores += Number(novoValor);
+        contador++;
+
+    }
+
+    const fazerMedia = () =>{
+        let resultado2 = document.getElementById("Resultado2"),
+            media2 = somaValores / contador;
+        
+        if(isNaN(media2)){
+            resultado2.innerHTML = 0
+        }else{
+            resultado2.innerHTML = media2
+        }
+    }
+
+    const resetar = () =>{
+        somaValores = 0;
+        contador = 0;
     }
 </script>
 
