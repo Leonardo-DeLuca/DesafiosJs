@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inverter A e B</title>
+</head>
+
+<style>
+    header{
+        text-align: center;
+        background-color: rgb(134, 182, 236);
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        font-weight: bolder;
+        border-radius: 10px;
+    }
+
+    div{
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Inverter A e B</h1>
+    </header>
+
+    <div>
+        <div id="A"></div>
+        <div id="B"></div>
+
+        <button onclick="inverter()">Inverter</button><br>
+
+        <div id="A2"></div>
+        <div id="B2"></div>
+
+    </div>
+    
+</body>
+
+<script>
+    let A = 3,
+        B = 5;
+
+        document.getElementById("A").innerHTML = `Valor inicial de A: ${A}`;
+        document.getElementById("B").innerHTML = `Valor inicial de B: ${B}`;
+        
+    function inverter() {
+        A = (A + B) //3 + 5 = 8
+        B = (A - B) //8 - 5 = 3
+        A -= B // 8 - 3 = 5
+
+        document.getElementById("A2").innerHTML = `Novo valor de A: ${A}`;
+        document.getElementById("B2").innerHTML = `Novo valor de B: ${B}`;
+    }
+
+    
+</script>
+
+</html>
