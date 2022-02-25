@@ -50,8 +50,14 @@
             IMC = (peso / (altura * altura)).toFixed(2),
             resultado = document.getElementById("Resultado");
 
-        if(Number(IMC) < 18.5){
+        if(Number(IMC) < 18){
             resultado.innerHTML = "Abaixo do Peso";
+        }else 
+        if(Number(IMC) >= 18 && Number(IMC) < 25){
+            resultado.innerHTML = "Peso Normal";
+        }
+        else{
+            resultado.innerHTML = "Acima do peso";
         }
     }
 </script>
