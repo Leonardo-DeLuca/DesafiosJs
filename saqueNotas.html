@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saque Notas</title>
+</head>
+
+<style>
+    header{
+        text-align: center;
+        background-color: rgb(237, 241, 169);
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        font-weight: bolder;
+        border-radius: 10px;
+    }
+
+    div{
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Saque Notas</h1>
+    </header>
+
+    <div>
+
+        <label for="Valor">Digite um valor para sacar:</label>
+        <p><input type="number" name="Valor" id="Valor"></p>
+
+        <button onclick="saque()">Contar Notas</button>
+
+        <div id="resultado"></div>
+    </div>
+    
+</body>
+
+<script>
+    const saque = () => {
+        let valor = document.getElementById("Valor").value,
+            n100 = 0,
+            n50 = 0,
+            n20 = 0,
+            n10 = 0;
+
+
+        while(valor % 10 == 0 && valor != 0){
+            valor -= 10;
+            n10++;
+            if(n10 == 2){
+                n20++
+                n10 = 0;
+            }
+            if(n20 == 2 && n10 == 1){
+                n50++
+                n20 = 0
+                n10 = 0
+            }
+        }
+
+        if(valor % 10 != 0){
+            document.getElementById("resultado").innerText = "oi"
+        }
+
+        console.log("n100 " + n100)
+        console.log("n50 " + n50)
+        console.log("n20 " + n20)
+        console.log("n10 " + n10)
+    }
+</script>
+
+</html> 
