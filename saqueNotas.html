@@ -42,12 +42,17 @@
 </body>
 
 <script>
+    let resultado = document.getElementById("resultado")
+
+
     const saque = () => {
         let valor = document.getElementById("Valor").value,
             n100 = 0,
             n50 = 0,
             n20 = 0,
             n10 = 0;
+
+        resultado.innerText = ""
 
 
         while(valor % 10 == 0 && valor != 0){
@@ -62,10 +67,19 @@
                 n20 = 0
                 n10 = 0
             }
+            if(n50 == 2){
+                n100++
+                n50 = 0
+                n20 = 0
+                n10 = 0
+            }
         }
 
         if(valor % 10 != 0){
-            document.getElementById("resultado").innerText = "oi"
+            resultado.innerText = "Valor Inválido"
+        }
+        else{
+            resultado.innerHTML = `Notas de 100: ${n100} <br> Notas de 50: ${n50} <br> Notas de 20: ${n20} <br> Notas de 10: ${n10}`
         }
 
         console.log("n100 " + n100)
